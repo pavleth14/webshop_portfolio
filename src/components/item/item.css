@@ -1,0 +1,13 @@
+.itemImageDiv {
+    height: 300px;   
+    border: 1px solid; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.itemImage {
+    height: 40%;
+    width: 50%;
+}
