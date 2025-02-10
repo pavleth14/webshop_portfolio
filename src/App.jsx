@@ -4,6 +4,7 @@ import Item from './components/item/Item';
 import { useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'; // Import za ruter
 import Cart from './components/cart/Cart';
+import Header from './components/header/header';
 
 function App() {
 
@@ -30,8 +31,9 @@ function App() {
         <Routes>
           {/* Ruta za glavnu stranicu */}
           <Route path="/" element={
-            <div>
-              <Link to="/cart">Go to Cart: {totalItems.length}</Link>
+            
+            <div>              
+              <Header />
             <div className='mainDiv'>
               
               {allData.map(item => (
