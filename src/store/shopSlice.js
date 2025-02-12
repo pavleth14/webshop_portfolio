@@ -12,6 +12,15 @@ const shopSlice = createSlice({
     reducers: {
         addToCart: (state, action) => {            
             const isExisting = state.allItems.find(item => item.id === action.payload.id);
+
+            if(action.payload.quantity) {
+                if (isExisting) {
+                    isExisting.quantity += action.payload.quantity
+                } else {
+                    state.allItems.push({ ...action.payload, quantity: action.payload.quantity });
+                }     
+                return;           
+            }
             
             if(isExisting) {
                 isExisting.quantity++

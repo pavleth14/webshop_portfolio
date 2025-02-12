@@ -1,16 +1,29 @@
 import './item.css';
 import { addToCart } from '../../store/shopSlice';
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 
-const Item = ({ item }) => {
+const Item = ({ item, showMoreThenOneItem }) => {
 
-    const dispatch = useDispatch();
+    const [quantity, setQuantity] = useState('');        
+    const dispatch = useDispatch();    
 
     const handleAddToCart = () => {        
+        item.quantity = parseInt(quantity);        
         dispatch(addToCart(item));
+        setQuantity('');
     }
 
-    return (
+    // pavle need improvment? isNaN()
+    const inputHandler = (e) => {        
+        if(typeof parseInt(e.target.value) === 'number' && e.target.value > 0) {
+            setQuantity(e.target.value);            
+        } else {
+            setQuantity(1);
+        }        
+    }
+
+    return (  
         <div className="itemImageDiv">
             <div>{item.title}</div>
             <div>{item.price} $</div>
@@ -18,7 +31,8 @@ const Item = ({ item }) => {
             <div>
                 <button onClick={handleAddToCart}>Add to Cart</button>
             </div>
-        </div>
+            {showMoreThenOneItem && <input value={quantity} onChange={inputHandler} type="number" placeholder='You can only put number...' />}            
+        </div>        
     );
 }
 

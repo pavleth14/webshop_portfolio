@@ -5,13 +5,26 @@ import { useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'; // Import za ruter
 import Cart from './components/cart/Cart';
 import Header from './components/header/header';
+import Shopping from './components/shopping/Shopping';
 
 function App() {
 
-  const totalItems = useSelector(state => state.shop.allItems);   
+  const totalItems = useSelector(state => state.shop.allItems);
   console.log(totalItems);
-  
+
   const [allData, setAllData] = useState([]);
+  const [showMoreThenOneItem, setShowMoreThenOneItem] = useState(false);
+  const [showInputsButtonText, setShowInputButtonText] = useState('Add more than one item');
+
+  const handleShowMoreThanOneItem = () => {
+    // Toggling između dva stanja za dugme
+    setShowMoreThenOneItem(prev => !prev);  
+    // Menjanje teksta dugmeta
+    setShowInputButtonText(prevText =>
+      prevText === 'Add more than one item' ? 'Add only one item' : 'Add more than one item'
+    );
+  }
+  
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
@@ -23,31 +36,38 @@ function App() {
   }, []);
 
   return (
-    <Router> {/* Router treba da obavija celu aplikaciju */}
-      <div>
-        {/* Prikazuje broj stavki u korpi i link za Cart */}        
-        
+    <div className='container'>
+
+      <Router>
+
 
         <Routes>
-          {/* Ruta za glavnu stranicu */}
+
           <Route path="/" element={
-            
-            <div>              
+
+            <div>
               <Header />
-            <div className='mainDiv'>
-              
-              {allData.map(item => (
-                <Item key={item.id} item={item} />
-              ))}
-            </div>
+              <div style={{ display: 'flex', marginBottom: '20px', marginTop: '20px' }}>
+                <button onClick={handleShowMoreThanOneItem}>{showInputsButtonText}</button>
+              </div>
+
+              <div className='mainDiv'>
+                {allData.map(item => (
+                  <Item key={item.id} item={item} showMoreThenOneItem={showMoreThenOneItem} />
+                ))}
+              </div>
+
             </div>
           } />
-          
-          {/* Ruta za Cart stranicu */}
+
           <Route path="/cart" element={<Cart />} />
+          <Route path="/shopping" element={<Shopping />} />
+
         </Routes>
-      </div>
-    </Router>
+
+
+      </Router>
+    </div>
   );
 }
 

@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart, addOneMore, removeOne } from '../../store/shopSlice'; // Assuming this action exists
+import { removeFromCart, addOneMore, removeOne } from '../../store/shopSlice'; 
 import { Link } from 'react-router-dom';
-import './Cart.css'; // Import styles for Cart component
+import './Cart.css'; 
 import Header from '../header/header';
 
 const Cart = () => {
@@ -44,11 +44,11 @@ const Cart = () => {
                 <div className="cartItemDetails">
                   <h3>{item.title}</h3>
                   <div>
-                  <p>Price: ${item.price}</p>
-                  <p>Quantity: {item.quantity}</p>
-                  <button onClick={() => handleAddMoreButton(item)}>+</button>
-                  <button onClick={() => handleRemoveOneButton(item)}>-</button>
-                  <button onClick={() => handleRemoveFromCart(item.id)}>Remove</button>
+                    <p>Price: ${item.price}</p>
+                    <p>Quantity: {item.quantity}</p>
+                    <button onClick={() => handleAddMoreButton(item)}>+</button>
+                    <button onClick={() => handleRemoveOneButton(item)}>-</button>
+                    <button onClick={() => handleRemoveFromCart(item.id)}>Remove</button>
                   </div>
                 </div>
               </li>
@@ -57,10 +57,12 @@ const Cart = () => {
 
           <div className="cartTotal">
             <h3>Total: ${calculateTotal()}</h3>
+            {/* Send cart data to Shopping component using state */}
+            <Link to="/shopping">Continue to shop</Link>
           </div>          
         </div>
       )}
-      <Link to='/'>Go Home</Link>
+            
     </div>
   );
 };
