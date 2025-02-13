@@ -73,7 +73,7 @@ label {
 
 /* Podnožje forme */
 button[type="submit"] {
-    width: 10%;
+    width: 100px;
     padding: 12px;
     background-color: #28a745;
     border: none;

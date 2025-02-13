@@ -38,7 +38,7 @@ function App() {
   return (
     <div className='container'>
 
-      <Router>
+      <Router basename="/webshop_portfolio">
 
 
         <Routes>
