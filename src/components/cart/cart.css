@@ -13,6 +13,19 @@
     width: 100%;
     margin: 0;
   }
+
+  @media (max-width: 600px) {
+    .cartItem {
+      flex-direction: column;  
+      align-items: center;
+    }
+    .cartItemImage {
+      margin-bottom: 10px;
+    }
+    .cartItemDetails{
+      flex-direction: column;  
+    }
+  }
   
   .cartItemImage {
     width: 120px;
@@ -28,7 +41,7 @@
     border: 1px solid grey;
     width: 80%;
     padding: 10px;    
-  }
+  }  
   
   .cartTotal {
     margin-top: 20px;
