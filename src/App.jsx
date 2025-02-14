@@ -1,11 +1,13 @@
 import './App.css'
 import { useEffect, useState } from 'react'
-import Item from './components/item/Item';
 import { useSelector } from 'react-redux';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'; // Import za ruter
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; 
 import Cart from './components/cart/Cart';
 import Header from './components/header/header';
 import Shopping from './components/shopping/Shopping';
+import Home from './components/home/Home';
+import Contact from './components/contact/Contact';
+import About from './components/about/About';
 
 function App() {
 
@@ -13,18 +15,6 @@ function App() {
   console.log(totalItems);
 
   const [allData, setAllData] = useState([]);
-  const [showMoreThenOneItem, setShowMoreThenOneItem] = useState(false);
-  const [showInputsButtonText, setShowInputButtonText] = useState('Add more than one item');
-
-  const handleShowMoreThanOneItem = () => {
-    // Toggling između dva stanja za dugme
-    setShowMoreThenOneItem(prev => !prev);  
-    // Menjanje teksta dugmeta
-    setShowInputButtonText(prevText =>
-      prevText === 'Add more than one item' ? 'Add only one item' : 'Add more than one item'
-    );
-  }
-  
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
@@ -47,21 +37,14 @@ function App() {
 
             <div>
               <Header />
-              <div style={{ display: 'flex', marginBottom: '20px', marginTop: '20px' }}>
-                <button onClick={handleShowMoreThanOneItem}>{showInputsButtonText}</button>
-              </div>
-
-              <div className='mainDiv'>
-                {allData.map(item => (
-                  <Item key={item.id} item={item} showMoreThenOneItem={showMoreThenOneItem} />
-                ))}
-              </div>
-
+              <Home allData={allData} />
             </div>
           } />
 
           <Route path="/cart" element={<Cart />} />
           <Route path="/shopping" element={<Shopping />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/contact' element={<Contact />} />
 
         </Routes>
 

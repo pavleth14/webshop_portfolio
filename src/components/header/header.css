@@ -2,4 +2,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: 1px solid;
+}
+
+.rightSideHeader {
+    display: flex;
+    border: 1px solid; 
+    width: 50%;
+    justify-content: space-between;
+}
+
+.rightSideHeader > ul {
+    border: 1px solid red; 
+    width: 50%;
+    display: flex; 
+    justify-content: space-between
 }

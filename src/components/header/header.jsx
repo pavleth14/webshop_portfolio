@@ -5,19 +5,26 @@ import './header.css'
 
 const Header = () => {
 
-    const totalItems = useSelector(state => state.shop.allItems);  
+    const totalItems = useSelector(state => state.shop.allItems);
     const location = useLocation();
 
-    return ( 
+    return (
         <div className='headerDiv'>
             <h1>Header</h1>
-            {location.pathname === '/cart' ? (
-                <Link to="/">Go Home</Link>  
-            ) : (
-                <Link to="/cart">Go to Cart: {totalItems.length}</Link> 
-            )}
+            <div className='rightSideHeader'>
+                <ul>
+                    <Link to={'/'}>Home</Link>
+                    <Link to={'/about'}>About</Link>
+                    <Link to={'/contact'}>Contact</Link>
+                </ul>                
+                    {location.pathname === '/cart' ? (
+                        <Link to="/">Go Home</Link>
+                    ) : (
+                        <Link to="/cart">Go to Cart: {totalItems.length}</Link>
+                    )}
+            </div>
         </div>
-     );
+    );
 }
- 
+
 export default Header;
