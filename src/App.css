@@ -9,6 +9,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  color: black;
   
 }
 
@@ -52,4 +53,5 @@
   width: 80vw;
   margin: 0 auto;
   overflow-x: hidden; /* Ovo sprečava horizontalni scrollbar */
+  overflow-y: hidden;
 }

@@ -15,6 +15,7 @@ function App() {
   console.log(totalItems);
 
   const [allData, setAllData] = useState([]);
+  const [allFilteredData, setFilteredAllData] = useState([]);
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
@@ -22,6 +23,7 @@ function App() {
       .then(json => {
         console.log(json)
         setAllData(json);
+        setFilteredAllData(json);
       })
   }, []);
 
@@ -37,7 +39,7 @@ function App() {
 
             <div>
               <Header />
-              <Home allData={allData} />
+              <Home allData={allData} setAllData={setAllData} allFilteredData={allFilteredData} setFilteredAllData={setFilteredAllData} />
             </div>
           } />
 

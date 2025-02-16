@@ -25,7 +25,7 @@ const Item = ({ item, showMoreThenOneItem }) => {
 
     return (  
         <div className="itemImageDiv">
-            <div>{item.title}</div>
+            <div>{item.title.substring(0, 20)}</div>
             <div>{item.price} $</div>
             <img className="itemImage" src={item.image} alt="item image" />
             <div>
