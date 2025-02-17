@@ -1,20 +1,65 @@
+/* Osnovni stilovi za header */
 .headerDiv {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid;
+    padding: 10px;
 }
 
 .rightSideHeader {
     display: flex;
-    border: 1px solid; 
-    width: 50%;
-    justify-content: space-between;
+    align-items: center; /* Vertikalno centriranje */
+    justify-content: end;
+    width: 100%;  /* Na većim ekranima može da bude 100% */
 }
 
-.rightSideHeader > ul {
-    border: 1px solid red; 
-    width: 50%;
-    display: flex; 
-    justify-content: space-between
+/* Stilovi za linkove u headeru */
+.headerLinks > ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px; /* Razmak između linkova */
+    margin-right: 20px;
+}
+
+/* Defaultno sakrivanje mobilnog menija */
+.mobileBars {
+    display: none;
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;    
+}
+
+/* Hambuger ikona */
+.hamburger-icon {
+    display: none; /* Ikona je sakrivena po defaultu */
+}
+
+/* Na manjim ekranima, prikazivanje hamburger ikone i sakrivanje standardnih linkova */
+@media (max-width: 800px) {
+    .hamburger-icon {
+        display: block;  /* Prikazivanje hamburger ikone */
+    }
+    .headerLinks {
+        display: none; /* Sakrij linkove na manjim ekranima */
+    }
+    .rightSideHeader {
+        width: 100%;  /* Na manjim ekranima, ceo sadržaj zauzima 100% širine */
+    }
+    .mobileBars {
+        display: block;  /* Meni se prikazuje kad je hamburger kliknut */
+        background-color: #f4f4f4;
+        border: 1px solid #ddd;
+    }
+    .hamburger {
+        margin-right: 20px;
+    }
+}
+
+/* Za još manji ekran, postaviti širinu menija ili još fine stilizacije */
+@media (max-width: 480px) {
+    .mobileBars {
+        padding-left: 20px;
+    }
 }
