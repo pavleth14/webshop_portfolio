@@ -15,6 +15,14 @@ const Header = () => {
 
     return (
         <div>
+            <div style={{display: 'flex', justifyContent: 'end'}}>
+                {/* Prikazivanje broja artikala u korpi */}
+                {location.pathname === '/cart' ? (
+                        <Link to="/">Go Home</Link>
+                    ) : (
+                        <Link to="/cart">Go to Cart: {totalItems.length}</Link>
+                    )}
+            </div>
             <div className='headerDiv'>
                 <h1>Header</h1>
                 <div className='rightSideHeader'>
@@ -32,12 +40,7 @@ const Header = () => {
                         <FaBars onClick={handleFaBars} className="hamburger-icon" size={30} />
                     </div>
 
-                    {/* Prikazivanje broja artikala u korpi */}
-                    {location.pathname === '/cart' ? (
-                        <Link to="/">Go Home</Link>
-                    ) : (
-                        <Link to="/cart">Go to Cart: {totalItems.length}</Link>
-                    )}
+                    
                 </div>
             </div>
 
