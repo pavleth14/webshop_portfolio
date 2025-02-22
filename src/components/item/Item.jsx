@@ -29,9 +29,9 @@ const Item = ({ item, showMoreThenOneItem }) => {
             <div>{item.price} $</div>
             <img className="itemImage" src={item.image} alt="item image" />
             <div>
-                <button onClick={handleAddToCart}>Add to Cart</button>
+                <button className='addToCartButton' onClick={handleAddToCart}>Add to Cart</button>
             </div>
-            {showMoreThenOneItem && <input value={quantity} onChange={inputHandler} type="number" placeholder='You can only put number...' />}            
+            {showMoreThenOneItem && <input className='moreThenOneProductInput' value={quantity} onChange={inputHandler} type="number" placeholder='You can only put number...' />}            
         </div>        
     );
 }

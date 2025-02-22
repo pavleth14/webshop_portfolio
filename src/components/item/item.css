@@ -11,3 +11,13 @@
     height: 50%;
     /* width: 50%; */
 }
+
+.addToCartButton {
+    margin-top: 5px;
+    outline: none;
+}
+
+.moreThenOneProductInput {
+    width: 90%;
+    margin: 5px auto;
+}

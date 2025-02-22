@@ -4,7 +4,7 @@ import Item from "../item/Item";
 
 const Home = ({ allData, allFilteredData, setFilteredAllData }) => {
     const [showMoreThenOneItem, setShowMoreThenOneItem] = useState(false);
-    const [showInputsButtonText, setShowInputButtonText] = useState('Add more than one item');
+    const [showInputsButtonText, setShowInputButtonText] = useState('Add more than one product');
     const [filterText, setFilterText] = useState(''); // Držimo tekst filtera u state-u
 
     const handleShowMoreThenOneItem = () => {
@@ -12,7 +12,7 @@ const Home = ({ allData, allFilteredData, setFilteredAllData }) => {
         setShowMoreThenOneItem(prev => !prev);
         // Menjanje teksta dugmeta
         setShowInputButtonText(prevText =>
-            prevText === 'Add more than one item' ? 'Add only one item' : 'Add more than one item'
+            prevText === 'Add more than one product' ? 'Add only one product' : 'Add more than one product'
         );
     }
 
@@ -32,7 +32,7 @@ const Home = ({ allData, allFilteredData, setFilteredAllData }) => {
     return (
         <div>
             <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '20px'}}>
-                <button onClick={handleShowMoreThenOneItem}>{showInputsButtonText}</button>
+                <button style={{outline: 'none'}} onClick={handleShowMoreThenOneItem}>{showInputsButtonText}</button>
                 <div>
                     <input className='input'
                         onChange={filterHandler} 
