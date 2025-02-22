@@ -3,7 +3,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 10px 0;
+    border: 1px solid red;
 }
 
 .headerDiv > h1 {
@@ -24,7 +25,7 @@
     margin: 0;
     display: flex;
     gap: 20px; /* Razmak između linkova */
-    margin-right: 20px;
+    margin-left: 20px;
 }
 
 /* Defaultno sakrivanje mobilnog menija */
@@ -37,7 +38,7 @@
 
 /* Hambuger ikona */
 .hamburger-icon {
-    display: none; /* Ikona je sakrivena po defaultu */
+    display: none; /* Ikona je sakrivena po defaultu */    
 }
 
 /* Na manjim ekranima, prikazivanje hamburger ikone i sakrivanje standardnih linkova */
@@ -56,14 +57,14 @@
         background-color: #f4f4f4;
         border: 1px solid #ddd;
     }
-    .hamburger {
-        margin-right: 20px;
-    }
 }
 
 /* Za još manji ekran, postaviti širinu menija ili još fine stilizacije */
 @media (max-width: 480px) {
     .mobileBars {
         padding-left: 20px;
+    }
+    .headerDiv > h1 {
+        font-size: 20px;
     }
 }
